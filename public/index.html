@@ -1,0 +1,62 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="todoModule">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>ToDo</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.0.1/sweetalert.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.0.1/sweetalert.min.js"></script>
+    <script src="core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- TITLE WITH TO DO COUNT -->
+        <div class="table-title">
+            <h3>Things to do ({{ todos.length }}) <i class="fa fa-plus" ng-click="createTodo()"></i></h3>
+        </div>
+
+        <!-- TODO LIST -->
+        <table class="table-fill">
+            <thead>
+                <tr>
+                    <th class="text-left">To do</th>
+                    <th class="text-left">Priority</th>
+                    <th class="text-left">Update</th>
+                    <th class="text-left">Done?</th>
+                    <th class="text-left"><i class="fa fa-trash-o"></i></th>
+                </tr>
+            </thead>
+            <tbody class="table-hover">
+                <tr ng-repeat="todo in todos | orderBy:'-priority'">
+                    <td class="text-left">{{todo.text}}</td>
+                    <td class="text-left">{{todo.priority}}</td>
+                    <td class="text-left"><i class="fa fa-arrow-up" ng-click="updateTodo(todo._id,1,todo.done)"></i> <i class="fa fa-arrow-down" ng-click="updateTodo(todo._id,-1,todo.done)"></i></td>
+                    <td class="text-left" ng-switch="todo.done">
+                        <div ng-switch-when="true" ng-click="updateTodo(todo._id,0,false)">Done!</div>
+                        <div ng-switch-when="false" ng-click="updateTodo(todo._id,0,true)">Not done!</div>
+                    </td>
+                    <td class="text-left"><i class="fa fa-trash-o" ng-click="deleteTodo(todo._id)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
