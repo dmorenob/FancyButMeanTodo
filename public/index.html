@@ -43,7 +43,7 @@
                 </tr>
             </thead>
             <tbody class="table-hover">
-                <tr ng-repeat="todo in todos | orderBy:'-priority'">
+                <tr ng-repeat="todo in todos | orderBy:'-text' | orderBy:'-priority' | orderBy:'done'">
                     <td class="text-left">{{todo.text}}</td>
                     <td class="text-left">{{todo.priority}}</td>
                     <td class="text-left"><i class="fa fa-arrow-up" ng-click="updateTodo(todo._id,1,todo.done)"></i> <i class="fa fa-arrow-down" ng-click="updateTodo(todo._id,-1,todo.done)"></i></td>
