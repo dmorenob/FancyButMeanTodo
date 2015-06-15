@@ -24,5 +24,5 @@ This project has been developed using the following:
 ![Add a to do](github_imgs/add.png)
 ![To do added](github_imgs/confirmed.png)
 ![To do's table](github_imgs/table.png)
-![Delete a to do](github_imgs/deleted.png)
+![Delete a to do](github_imgs/delete.png)
 
