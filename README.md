@@ -21,8 +21,8 @@ This project has been developed using the following:
 
 ### Enjoy
 
-![Add a to do](add.png)
-![To do added](confirmed.png)
-![To do's table](table.png)
-![Delete a to do](deleted.png)
+![Add a to do](github_imgs/add.png)
+![To do added](github_imgs/confirmed.png)
+![To do's table](github_imgs/table.png)
+![Delete a to do](github_imgs/deleted.png)
 
